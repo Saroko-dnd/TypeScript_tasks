@@ -78,6 +78,10 @@ function createCustomerId(name: string, id: number): string {
 }
 
 const myId: string = createCustomerId("Ann", 10);
+const idGenerator: (a: string, b: number) => string = (
+    name: string,
+    id: number,
+) => `${name} ${id}`;
 
 logFirstAvailable(getAllBooks());
 /* tslint:disable:no-console */
