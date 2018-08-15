@@ -1,3 +1,11 @@
+enum Category {
+    JavaScript,
+    CSS,
+    HTML,
+    TypeScript,
+    Angular2,
+}
+
 function getAllBooks(): any[] {
     const books: any[] = [
         {
@@ -35,10 +43,10 @@ function logFirstAvailable(books: any[]): void {
         }
     }
 
-  /* tslint:disable:no-console */
+    /* tslint:disable:no-console */
     console.log(`Amount of books: ${amountOfBooks}`);
     console.log(`First available book: ${firsrtAvailable}`);
-  /* tslint:enable:no-console */
+    /* tslint:enable:no-console */
 }
 
 logFirstAvailable(getAllBooks());
