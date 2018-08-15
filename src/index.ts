@@ -77,6 +77,8 @@ function createCustomerId(name: string, id: number): string {
     return `${name} ${id}`;
 }
 
+const myId: string = createCustomerId("Ann", 10);
+
 logFirstAvailable(getAllBooks());
 /* tslint:disable:no-console */
 // tslint:disable-next-line:max-line-length
@@ -92,12 +94,7 @@ console.log(
 );
 
 console.log(`Book with id 2: ${getBookById(2).title}`);
-console.log(
-    `\nCustomer id from name Igor and id 1234: ${createCustomerId(
-        `Igor`,
-        1234,
-    )}\n\n`,
-);
+console.log(`\nCustomer id from name Igor and id 1234: ${myId}\n\n`);
 /* tslint:enable:no-console */
 
 logBookTitles(getAllBooks().map((book) => book.title));
