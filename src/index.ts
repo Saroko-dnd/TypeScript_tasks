@@ -53,7 +53,21 @@ function logFirstAvailable(books: any[]): void {
     /* tslint:enable:no-console */
 }
 
+function getBookTitlesByCategory(category: Category): string[] {
+    return getAllBooks()
+        .filter((book) => book.category === category)
+        .map((book) => book.title);
+}
+
 logFirstAvailable(getAllBooks());
+
+/* tslint:disable:no-console */
+console.log(
+    `Books in JavasCript category: ${getBookTitlesByCategory(
+        Category.JavaScript,
+    )}`,
+);
+/* tslint:enable:no-console */
 
 document.getElementById("typescript-app").innerText = JSON.stringify(
     getAllBooks(),
