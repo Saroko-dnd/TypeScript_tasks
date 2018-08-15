@@ -11,21 +11,25 @@ function getAllBooks(): any[] {
         {
             author: "Evan Burchard",
             available: true,
+            category: Category.JavaScript,
             title: "Refactoring JavaScript",
         },
         {
             author: "Liang Yuxian Eugene",
             available: false,
+            category: Category.JavaScript,
             title: "JavaScript Testing",
         },
         {
             author: "Lea Verou",
             available: true,
+            category: Category.CSS,
             title: "CSS Secrets",
         },
         {
             author: "Andrea Chialerri",
             available: true,
+            category: Category.JavaScript,
             title: "Mastering JavaScript Object-Oriented Programming",
         },
     ];
