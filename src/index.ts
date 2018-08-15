@@ -59,8 +59,13 @@ function getBookTitlesByCategory(category: Category): string[] {
         .map((book) => book.title);
 }
 
-logFirstAvailable(getAllBooks());
+function logBookTitles(titles: string[]): void {
+    /* tslint:disable:no-console */
+    console.log(`All book titles: ${titles}`);
+    /* tslint:enable:no-console */
+}
 
+logFirstAvailable(getAllBooks());
 /* tslint:disable:no-console */
 console.log(
     `Books in JavasCript category: ${getBookTitlesByCategory(
@@ -68,6 +73,7 @@ console.log(
     )}`,
 );
 /* tslint:enable:no-console */
+logBookTitles(getAllBooks().map((book) => book.title));
 
 document.getElementById("typescript-app").innerText = JSON.stringify(
     getAllBooks(),
