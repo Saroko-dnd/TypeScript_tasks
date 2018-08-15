@@ -69,6 +69,10 @@ function logBookTitles(titles: string[]): void {
     /* tslint:enable:no-console */
 }
 
+function getBookById(id: number): any {
+    return getAllBooks().find((book) => book.id === id);
+}
+
 logFirstAvailable(getAllBooks());
 /* tslint:disable:no-console */
 // tslint:disable-next-line:max-line-length
@@ -82,6 +86,8 @@ console.log(
         Category.JavaScript,
     )}`,
 );
+
+console.log(`Book with id 2: ${getBookById(2).title}`);
 /* tslint:enable:no-console */
 
 logBookTitles(getAllBooks().map((book) => book.title));
