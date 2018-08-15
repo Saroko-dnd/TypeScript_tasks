@@ -94,7 +94,7 @@ console.log(
 );
 
 console.log(`Book with id 2: ${getBookById(2).title}`);
-console.log(`\nCustomer id from name Igor and id 1234: ${myId}\n\n`);
+console.log(`\nCustomer id from name Ann and id 10: ${myId}\n\n`);
 /* tslint:enable:no-console */
 
 logBookTitles(getAllBooks().map((book) => book.title));
