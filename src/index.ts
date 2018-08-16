@@ -12,35 +12,35 @@ function getAllBooks(): any[] {
             author: "Evan Burchard",
             available: true,
             category: Category.JavaScript,
-            id: 0,
+            id: 1,
             title: "Refactoring JavaScript",
         },
         {
             author: "Liang Yuxian Eugene",
             available: false,
             category: Category.JavaScript,
-            id: 1,
+            id: 2,
             title: "JavaScript Testing",
         },
         {
             author: "Lea Verou",
             available: true,
             category: Category.CSS,
-            id: 2,
+            id: 3,
             title: "CSS Secrets",
         },
         {
             author: "Andrea Chialerri",
             available: true,
             category: Category.JavaScript,
-            id: 3,
+            id: 4,
             title: "Mastering JavaScript Object-Oriented Programming",
         },
     ];
     return books;
 }
 
-function logFirstAvailable(books: any[]): void {
+function logFirstAvailable(books = getAllBooks()): void {
     const amountOfBooks: number = books.length;
     let firsrtAvailable: string = "";
 
@@ -51,22 +51,18 @@ function logFirstAvailable(books: any[]): void {
         }
     }
 
-    /* tslint:disable:no-console */
     console.log(`Amount of books: ${amountOfBooks}`);
     console.log(`First available book: ${firsrtAvailable}`);
-    /* tslint:enable:no-console */
 }
 
-function getBookTitlesByCategory(category: Category): string[] {
+function getBookTitlesByCategory(category = Category.JavaScript): string[] {
     return getAllBooks()
         .filter((book) => book.category === category)
         .map((book) => book.title);
 }
 
 function logBookTitles(titles: string[]): void {
-    /* tslint:disable:no-console */
     console.log(`All book titles: ${titles}`);
-    /* tslint:enable:no-console */
 }
 
 function getBookById(id: number): any {
@@ -86,7 +82,7 @@ let idGenerator: (a: string, b: number) => string = (
 idGenerator = createCustomerId;
 
 logFirstAvailable(getAllBooks());
-/* tslint:disable:no-console */
+
 console.log(`\nBooks in JavasCript category (forEach)`);
 getBookTitlesByCategory(Category.JavaScript).forEach((title) =>
     console.log(title),
@@ -107,9 +103,49 @@ console.log(
         10,
     )}\n\n`,
 );
-/* tslint:enable:no-console */
 
 logBookTitles(getAllBooks().map((book) => book.title));
+
+// task 5. Optional, default and rest parameters.
+// ************************************************
+console.log(`\nTASK-5`);
+console.log(
+    `\ncreateCustomer function calls with and without optional parameters`,
+);
+
+function createCustomer(name: string, age?: number, city?: string) {
+    console.log(`${name} ${age || ""} ${city || ""}`);
+}
+
+createCustomer("Max");
+createCustomer("Max", 34);
+createCustomer("Max", 34, "London");
+
+console.log(`\nBooks in JavasCript category (default parameter)`);
+console.log(getBookTitlesByCategory().join());
+console.log("First available book (default parameter):");
+logFirstAvailable();
+
+function checkoutBooks(customer: string, ...bookIDs: number[]): string[] {
+    const availableTitles: string[] = [];
+    let foundBook: any;
+
+    console.log(`\nCustomer name: ${customer}`);
+
+    bookIDs.forEach((id) => {
+        foundBook = getBookById(id);
+        if (foundBook.available) {
+            availableTitles.push(foundBook.title);
+        }
+    });
+
+    return availableTitles;
+}
+
+console.log('\nCall checkoutBooks("Ann", 1, 2, 4) (uses rest parameter):');
+const myBooks = checkoutBooks("Ann", 1, 2, 4);
+myBooks.forEach((title) => console.log(title));
+// ************************************************
 
 document.getElementById("typescript-app").innerText = JSON.stringify(
     getAllBooks(),

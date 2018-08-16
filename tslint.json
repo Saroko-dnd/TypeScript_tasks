@@ -13,6 +13,7 @@
                 }
             }
         ],
+        "no-console": [false],
         "ter-arrow-parens": [true, "always"],
         "prefer-template": true,
         "indent": [true, "spaces"],
