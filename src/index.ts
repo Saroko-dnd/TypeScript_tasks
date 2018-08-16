@@ -40,7 +40,7 @@ function getAllBooks(): any[] {
     return books;
 }
 
-function logFirstAvailable(books: any[]): void {
+function logFirstAvailable(books = getAllBooks()): void {
     const amountOfBooks: number = books.length;
     let firsrtAvailable: string = "";
 
@@ -131,6 +131,8 @@ createCustomer("Max", 34, "London");
 /* tslint:disable:no-console */
 console.log(`\nBooks in JavasCript category (default parameter)`);
 console.log(getBookTitlesByCategory().join());
+console.log("First available book (default parameter):");
+logFirstAvailable();
 /* tslint:enable:no-console */
 // ************************************************
 
