@@ -51,10 +51,8 @@ function logFirstAvailable(books = getAllBooks()): void {
         }
     }
 
-    /* tslint:disable:no-console */
     console.log(`Amount of books: ${amountOfBooks}`);
     console.log(`First available book: ${firsrtAvailable}`);
-    /* tslint:enable:no-console */
 }
 
 function getBookTitlesByCategory(category = Category.JavaScript): string[] {
@@ -64,9 +62,7 @@ function getBookTitlesByCategory(category = Category.JavaScript): string[] {
 }
 
 function logBookTitles(titles: string[]): void {
-    /* tslint:disable:no-console */
     console.log(`All book titles: ${titles}`);
-    /* tslint:enable:no-console */
 }
 
 function getBookById(id: number): any {
@@ -86,7 +82,7 @@ let idGenerator: (a: string, b: number) => string = (
 idGenerator = createCustomerId;
 
 logFirstAvailable(getAllBooks());
-/* tslint:disable:no-console */
+
 console.log(`\nBooks in JavasCript category (forEach)`);
 getBookTitlesByCategory(Category.JavaScript).forEach((title) =>
     console.log(title),
@@ -107,33 +103,42 @@ console.log(
         10,
     )}\n\n`,
 );
-/* tslint:enable:no-console */
 
 logBookTitles(getAllBooks().map((book) => book.title));
 
 // task 5. Optional, default and rest parameters.
 // ************************************************
-/* tslint:disable:no-console */
 console.log(`\nTASK-5`);
 console.log(
     `\ncreateCustomer function calls with and without optional parameters`,
 );
-/* tslint:enable:no-console */
+
 function createCustomer(name: string, age?: number, city?: string) {
-    /* tslint:disable:no-console */
     console.log(`${name} ${age || ""} ${city || ""}`);
-    /* tslint:enable:no-console */
 }
 
 createCustomer("Max");
 createCustomer("Max", 34);
 createCustomer("Max", 34, "London");
-/* tslint:disable:no-console */
+
 console.log(`\nBooks in JavasCript category (default parameter)`);
 console.log(getBookTitlesByCategory().join());
 console.log("First available book (default parameter):");
 logFirstAvailable();
-/* tslint:enable:no-console */
+
+function checkoutBooks(customer: string, bookIDs: number[]) {
+    const availableTitles: string[] = [];
+    let foundBook: any;
+
+    console.log(`Customer name: ${customer}`);
+
+    bookIDs.forEach((id) => {
+        foundBook = getBookById(id);
+        if (foundBook.available) {
+            availableTitles.push(foundBook.title);
+        }
+    });
+}
 // ************************************************
 
 document.getElementById("typescript-app").innerText = JSON.stringify(
