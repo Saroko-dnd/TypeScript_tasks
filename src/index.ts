@@ -12,28 +12,28 @@ function getAllBooks(): any[] {
             author: "Evan Burchard",
             available: true,
             category: Category.JavaScript,
-            id: 0,
+            id: 1,
             title: "Refactoring JavaScript",
         },
         {
             author: "Liang Yuxian Eugene",
             available: false,
             category: Category.JavaScript,
-            id: 1,
+            id: 2,
             title: "JavaScript Testing",
         },
         {
             author: "Lea Verou",
             available: true,
             category: Category.CSS,
-            id: 2,
+            id: 3,
             title: "CSS Secrets",
         },
         {
             author: "Andrea Chialerri",
             available: true,
             category: Category.JavaScript,
-            id: 3,
+            id: 4,
             title: "Mastering JavaScript Object-Oriented Programming",
         },
     ];
@@ -126,11 +126,11 @@ console.log(getBookTitlesByCategory().join());
 console.log("First available book (default parameter):");
 logFirstAvailable();
 
-function checkoutBooks(customer: string, bookIDs: number[]) {
+function checkoutBooks(customer: string, ...bookIDs: number[]): string[] {
     const availableTitles: string[] = [];
     let foundBook: any;
 
-    console.log(`Customer name: ${customer}`);
+    console.log(`\nCustomer name: ${customer}`);
 
     bookIDs.forEach((id) => {
         foundBook = getBookById(id);
@@ -138,7 +138,13 @@ function checkoutBooks(customer: string, bookIDs: number[]) {
             availableTitles.push(foundBook.title);
         }
     });
+
+    return availableTitles;
 }
+
+console.log('\nCall checkoutBooks("Ann", 1, 2, 4) (uses rest parameter):');
+const myBooks = checkoutBooks("Ann", 1, 2, 4);
+myBooks.forEach((title) => console.log(title));
 // ************************************************
 
 document.getElementById("typescript-app").innerText = JSON.stringify(
