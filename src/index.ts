@@ -111,6 +111,19 @@ console.log(
 
 logBookTitles(getAllBooks().map((book) => book.title));
 
+// task 5. Optional, default and rest parameters.
+// ************************************************
+function createCustomer(name: string, age?: number, city?: string) {
+    /* tslint:disable:no-console */
+    console.log(`${name} ${age || ""} ${city || ""}`);
+    /* tslint:enable:no-console */
+}
+
+createCustomer("Max");
+createCustomer("Max", 34);
+createCustomer("Max", 34, "London");
+// ************************************************
+
 document.getElementById("typescript-app").innerText = JSON.stringify(
     getAllBooks(),
 );
