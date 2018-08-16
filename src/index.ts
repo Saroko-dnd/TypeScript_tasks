@@ -73,9 +73,20 @@ function getBookById(id: number): any {
     return getAllBooks().find((book) => book.id === id);
 }
 
+function createCustomerId(name: string, id: number): string {
+    return `${name} ${id}`;
+}
+
+const myId: string = createCustomerId("Ann", 10);
+let idGenerator: (a: string, b: number) => string = (
+    name: string,
+    id: number,
+) => `${name} ${id}`;
+
+idGenerator = createCustomerId;
+
 logFirstAvailable(getAllBooks());
 /* tslint:disable:no-console */
-// tslint:disable-next-line:max-line-length
 console.log(`\nBooks in JavasCript category (forEach)`);
 getBookTitlesByCategory(Category.JavaScript).forEach((title) =>
     console.log(title),
@@ -88,6 +99,14 @@ console.log(
 );
 
 console.log(`Book with id 2: ${getBookById(2).title}`);
+console.log(`\nCustomer id from name Ann and id 10: ${myId}\n\n`);
+console.log(`\ncreateCustomerId function assigned to idGenerator variable`);
+console.log(
+    `Customer id from name Ann and id 10 (idGenerator call): ${idGenerator(
+        "Ann",
+        10,
+    )}\n\n`,
+);
 /* tslint:enable:no-console */
 
 logBookTitles(getAllBooks().map((book) => book.title));
