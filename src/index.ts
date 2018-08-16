@@ -57,7 +57,7 @@ function logFirstAvailable(books: any[]): void {
     /* tslint:enable:no-console */
 }
 
-function getBookTitlesByCategory(category: Category): string[] {
+function getBookTitlesByCategory(category = Category.JavaScript): string[] {
     return getAllBooks()
         .filter((book) => book.category === category)
         .map((book) => book.title);
@@ -113,6 +113,12 @@ logBookTitles(getAllBooks().map((book) => book.title));
 
 // task 5. Optional, default and rest parameters.
 // ************************************************
+/* tslint:disable:no-console */
+console.log(`\nTASK-5`);
+console.log(
+    `\ncreateCustomer function calls with and without optional parameters`,
+);
+/* tslint:enable:no-console */
 function createCustomer(name: string, age?: number, city?: string) {
     /* tslint:disable:no-console */
     console.log(`${name} ${age || ""} ${city || ""}`);
@@ -122,6 +128,10 @@ function createCustomer(name: string, age?: number, city?: string) {
 createCustomer("Max");
 createCustomer("Max", 34);
 createCustomer("Max", 34, "London");
+/* tslint:disable:no-console */
+console.log(`\nBooks in JavasCript category (default parameter)`);
+console.log(getBookTitlesByCategory().join());
+/* tslint:enable:no-console */
 // ************************************************
 
 document.getElementById("typescript-app").innerText = JSON.stringify(
