@@ -6,8 +6,19 @@ enum Category {
     Angular2,
 }
 
-function getAllBooks(): any[] {
-    const books: any[] = [
+// task 7. Defining an interface
+// ************************************************
+interface IBook {
+    id: number;
+    author: string;
+    available: boolean;
+    title: string;
+    category: Category;
+}
+// ************************************************
+
+function getAllBooks(): IBook[] {
+    const books: IBook[] = [
         {
             author: 'Evan Burchard',
             available: true,
