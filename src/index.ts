@@ -14,6 +14,7 @@ interface IBook {
     available: boolean;
     title: string;
     category: Category;
+    pages?: number;
 }
 
 const myBook = {
