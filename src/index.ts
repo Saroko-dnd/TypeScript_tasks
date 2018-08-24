@@ -29,6 +29,11 @@ const myBook = {
 function printBook(book: IBook): void {
     console.log(`${book.title} by ${book.author}`);
 }
+
+console.log('\nTask 7. Defining an interface');
+console.log('Book from myBook variable:');
+printBook(myBook);
+console.log('\n\n');
 // ************************************************
 
 function getAllBooks(): IBook[] {
