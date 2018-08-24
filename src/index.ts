@@ -76,7 +76,7 @@ function logBookTitles(titles: string[]): void {
     console.log(`All book titles: ${titles}`);
 }
 
-function getBookById(id: number): any {
+function getBookById(id: number): IBook | undefined {
     return getAllBooks().find((book) => book.id === id);
 }
 
@@ -170,12 +170,12 @@ function getTitles(bookProperty: any): string[] {
     switch (typeof bookProperty) {
     case 'string':
         filteredBooks = getAllBooks().filter(
-            (book) => book.author === bookProperty,
+                (book) => book.author === bookProperty,
             );
         break;
     case 'boolean':
         filteredBooks = getAllBooks().filter(
-            (book) => book.available === bookProperty,
+                (book) => book.available === bookProperty,
             );
         break;
     default:
