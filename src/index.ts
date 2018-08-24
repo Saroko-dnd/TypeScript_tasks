@@ -16,6 +16,16 @@ interface IBook {
     category: Category;
 }
 
+const myBook = {
+    author: 'Eric A. Meyer',
+    available: true,
+    category: Category.CSS,
+    copies: 3,
+    id: 5,
+    title: 'Colors, Backgrounds and Gradients',
+    year: 2015,
+};
+
 function printBook(book: IBook): void {
     console.log(`${book.title} by ${book.author}`);
 }
