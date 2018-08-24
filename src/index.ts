@@ -6,13 +6,51 @@ enum Category {
     Angular2,
 }
 
-function getAllBooks(): any[] {
-    const books: any[] = [
+// task 7. Defining an interface
+// ************************************************
+interface IBook {
+    id: number;
+    author: string;
+    available: boolean;
+    title: string;
+    category: Category;
+    pages?: number;
+    markDamaged: (reason: string) => void;
+}
+
+const printDamageReason = (reason) => {
+    console.log(`Damaged ${reason}`);
+};
+
+const myBook: IBook = {
+    author: 'Eric A. Meyer',
+    available: true,
+    category: Category.CSS,
+    id: 5,
+    markDamaged: printDamageReason,
+    pages: 200,
+    title: 'Colors, Backgrounds and Gradients',
+};
+
+function printBook(book: IBook): void {
+    console.log(`${book.title} by ${book.author}`);
+}
+
+console.log('\nTask 7. Defining an interface');
+console.log('Book from myBook variable:');
+printBook(myBook);
+myBook.markDamaged(`Missing back cover`);
+console.log('\n\n');
+// ************************************************
+
+function getAllBooks(): IBook[] {
+    const books: IBook[] = [
         {
             author: 'Evan Burchard',
             available: true,
             category: Category.JavaScript,
             id: 1,
+            markDamaged: printDamageReason,
             title: 'Refactoring JavaScript',
         },
         {
@@ -20,6 +58,7 @@ function getAllBooks(): any[] {
             available: false,
             category: Category.JavaScript,
             id: 2,
+            markDamaged: printDamageReason,
             title: 'JavaScript Testing',
         },
         {
@@ -27,6 +66,7 @@ function getAllBooks(): any[] {
             available: true,
             category: Category.CSS,
             id: 3,
+            markDamaged: printDamageReason,
             title: 'CSS Secrets',
         },
         {
@@ -34,6 +74,7 @@ function getAllBooks(): any[] {
             available: true,
             category: Category.JavaScript,
             id: 4,
+            markDamaged: printDamageReason,
             title: 'Mastering JavaScript Object-Oriented Programming',
         },
     ];
@@ -65,7 +106,7 @@ function logBookTitles(titles: string[]): void {
     console.log(`All book titles: ${titles}`);
 }
 
-function getBookById(id: number): any {
+function getBookById(id: number): IBook | undefined {
     return getAllBooks().find((book) => book.id === id);
 }
 
