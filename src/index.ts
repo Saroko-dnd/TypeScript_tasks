@@ -6,6 +6,11 @@ enum Category {
     Angular2,
 }
 
+// Task 8. Defining interface for Function types
+// ************************************************
+type DamageLogger = (a: string) => void;
+// ************************************************
+
 // task 7. Defining an interface
 // ************************************************
 interface IBook {
@@ -15,10 +20,10 @@ interface IBook {
     title: string;
     category: Category;
     pages?: number;
-    markDamaged: (reason: string) => void;
+    markDamaged: DamageLogger;
 }
 
-const printDamageReason = (reason) => {
+const printDamageReason: DamageLogger = (reason) => {
     console.log(`Damaged ${reason}`);
 };
 
