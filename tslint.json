@@ -13,6 +13,7 @@
                 }
             }
         ],
+        "quotemark": [true, "single"],
         "no-console": [false],
         "ter-arrow-parens": [true, "always"],
         "prefer-template": true,
