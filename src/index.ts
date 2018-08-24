@@ -15,6 +15,10 @@ interface IBook {
     title: string;
     category: Category;
 }
+
+function printBook(book: IBook): void {
+    console.log(`${book.title} by ${book.author}`);
+}
 // ************************************************
 
 function getAllBooks(): IBook[] {
@@ -170,12 +174,12 @@ function getTitles(bookProperty: any): string[] {
     switch (typeof bookProperty) {
     case 'string':
         filteredBooks = getAllBooks().filter(
-                (book) => book.author === bookProperty,
+            (book) => book.author === bookProperty,
             );
         break;
     case 'boolean':
         filteredBooks = getAllBooks().filter(
-                (book) => book.available === bookProperty,
+            (book) => book.available === bookProperty,
             );
         break;
     default:
