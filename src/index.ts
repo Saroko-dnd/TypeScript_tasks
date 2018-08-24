@@ -147,6 +147,33 @@ const myBooks = checkoutBooks("Ann", 1, 2, 4);
 myBooks.forEach((title) => console.log(title));
 // ************************************************
 
+// task 6. Function overloading
+// ************************************************
+function getTitles(author: string) : string[];
+function getTitles(availability: boolean) : string[];
+function getTitles(bookProperty: any) : string[]{
+    let filteredBooks: any[] = [];
+
+    switch (typeof bookProperty) {
+        case 'string':
+        filteredBooks = getAllBooks().filter(book => book.author === bookProperty);
+          break;
+        case 'boolean':
+        filteredBooks = getAllBooks().filter(book => book.available === bookProperty);
+          break;
+        default:
+        break; ;
+      }
+
+    return filteredBooks.map(book => book.title);
+}
+
+
+
+
+
+// ************************************************
+
 document.getElementById("typescript-app").innerText = JSON.stringify(
     getAllBooks(),
 );
