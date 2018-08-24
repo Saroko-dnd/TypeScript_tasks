@@ -15,13 +15,19 @@ interface IBook {
     title: string;
     category: Category;
     pages?: number;
+    markDamaged: (reason: string) => void;
 }
+
+const printDamageReason = (reason) => {
+    console.log(`Damaged ${reason}`);
+};
 
 const myBook: IBook = {
     author: 'Eric A. Meyer',
     available: true,
     category: Category.CSS,
     id: 5,
+    markDamaged: printDamageReason,
     pages: 200,
     title: 'Colors, Backgrounds and Gradients',
 };
@@ -33,6 +39,7 @@ function printBook(book: IBook): void {
 console.log('\nTask 7. Defining an interface');
 console.log('Book from myBook variable:');
 printBook(myBook);
+myBook.markDamaged(`Missing back cover`);
 console.log('\n\n');
 // ************************************************
 
@@ -43,6 +50,7 @@ function getAllBooks(): IBook[] {
             available: true,
             category: Category.JavaScript,
             id: 1,
+            markDamaged: printDamageReason,
             title: 'Refactoring JavaScript',
         },
         {
@@ -50,6 +58,7 @@ function getAllBooks(): IBook[] {
             available: false,
             category: Category.JavaScript,
             id: 2,
+            markDamaged: printDamageReason,
             title: 'JavaScript Testing',
         },
         {
@@ -57,6 +66,7 @@ function getAllBooks(): IBook[] {
             available: true,
             category: Category.CSS,
             id: 3,
+            markDamaged: printDamageReason,
             title: 'CSS Secrets',
         },
         {
@@ -64,6 +74,7 @@ function getAllBooks(): IBook[] {
             available: true,
             category: Category.JavaScript,
             id: 4,
+            markDamaged: printDamageReason,
             title: 'Mastering JavaScript Object-Oriented Programming',
         },
     ];
