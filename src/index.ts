@@ -9,32 +9,32 @@ enum Category {
 function getAllBooks(): any[] {
     const books: any[] = [
         {
-            author: "Evan Burchard",
+            author: 'Evan Burchard',
             available: true,
             category: Category.JavaScript,
             id: 1,
-            title: "Refactoring JavaScript",
+            title: 'Refactoring JavaScript',
         },
         {
-            author: "Liang Yuxian Eugene",
+            author: 'Liang Yuxian Eugene',
             available: false,
             category: Category.JavaScript,
             id: 2,
-            title: "JavaScript Testing",
+            title: 'JavaScript Testing',
         },
         {
-            author: "Lea Verou",
+            author: 'Lea Verou',
             available: true,
             category: Category.CSS,
             id: 3,
-            title: "CSS Secrets",
+            title: 'CSS Secrets',
         },
         {
-            author: "Andrea Chialerri",
+            author: 'Andrea Chialerri',
             available: true,
             category: Category.JavaScript,
             id: 4,
-            title: "Mastering JavaScript Object-Oriented Programming",
+            title: 'Mastering JavaScript Object-Oriented Programming',
         },
     ];
     return books;
@@ -42,7 +42,7 @@ function getAllBooks(): any[] {
 
 function logFirstAvailable(books = getAllBooks()): void {
     const amountOfBooks: number = books.length;
-    let firsrtAvailable: string = "";
+    let firsrtAvailable: string = '';
 
     for (const book of books) {
         if (book.available) {
@@ -73,7 +73,7 @@ function createCustomerId(name: string, id: number): string {
     return `${name} ${id}`;
 }
 
-const myId: string = createCustomerId("Ann", 10);
+const myId: string = createCustomerId('Ann', 10);
 let idGenerator: (a: string, b: number) => string = (
     name: string,
     id: number,
@@ -99,7 +99,7 @@ console.log(`\nCustomer id from name Ann and id 10: ${myId}\n\n`);
 console.log(`\ncreateCustomerId function assigned to idGenerator variable`);
 console.log(
     `Customer id from name Ann and id 10 (idGenerator call): ${idGenerator(
-        "Ann",
+        'Ann',
         10,
     )}\n\n`,
 );
@@ -114,16 +114,16 @@ console.log(
 );
 
 function createCustomer(name: string, age?: number, city?: string) {
-    console.log(`${name} ${age || ""} ${city || ""}`);
+    console.log(`${name} ${age || ''} ${city || ''}`);
 }
 
-createCustomer("Max");
-createCustomer("Max", 34);
-createCustomer("Max", 34, "London");
+createCustomer('Max');
+createCustomer('Max', 34);
+createCustomer('Max', 34, 'London');
 
 console.log(`\nBooks in JavasCript category (default parameter)`);
 console.log(getBookTitlesByCategory().join());
-console.log("First available book (default parameter):");
+console.log('First available book (default parameter):');
 logFirstAvailable();
 
 function checkoutBooks(customer: string, ...bookIDs: number[]): string[] {
@@ -143,37 +143,47 @@ function checkoutBooks(customer: string, ...bookIDs: number[]): string[] {
 }
 
 console.log('\nCall checkoutBooks("Ann", 1, 2, 4) (uses rest parameter):');
-const myBooks = checkoutBooks("Ann", 1, 2, 4);
+const myBooks = checkoutBooks('Ann', 1, 2, 4);
 myBooks.forEach((title) => console.log(title));
 // ************************************************
 
 // task 6. Function overloading
 // ************************************************
-function getTitles(author: string) : string[];
-function getTitles(availability: boolean) : string[];
-function getTitles(bookProperty: any) : string[]{
+
+/* tslint:disable:unified-signatures */
+function getTitles(author: string): string[];
+function getTitles(availability: boolean): string[];
+function getTitles(bookProperty: any): string[] {
     let filteredBooks: any[] = [];
 
     switch (typeof bookProperty) {
-        case 'string':
-        filteredBooks = getAllBooks().filter(book => book.author === bookProperty);
-          break;
-        case 'boolean':
-        filteredBooks = getAllBooks().filter(book => book.available === bookProperty);
-          break;
-        default:
-        break; ;
-      }
+    case 'string':
+        filteredBooks = getAllBooks().filter(
+            (book) => book.author === bookProperty,
+            );
+        break;
+    case 'boolean':
+        filteredBooks = getAllBooks().filter(
+            (book) => book.available === bookProperty,
+            );
+        break;
+    default:
+        break;
+    }
 
-    return filteredBooks.map(book => book.title);
+    return filteredBooks.map((book) => book.title);
 }
+/* tslint:enable:unified-signatures */
 
+const checkedOutBooks = getTitles(false);
 
-
-
+console.log('\nTask 6');
+console.log('Titles of unavailable books:');
+checkedOutBooks.forEach((title, index) => console.log(`title 1: ${title}`));
+console.log('\n');
 
 // ************************************************
 
-document.getElementById("typescript-app").innerText = JSON.stringify(
+document.getElementById('typescript-app').innerText = JSON.stringify(
     getAllBooks(),
 );
