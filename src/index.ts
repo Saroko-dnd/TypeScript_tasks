@@ -6,6 +6,14 @@ enum Category {
     Angular2,
 }
 
+// Task 9. Extending interface
+// ************************************************
+interface IPerson {
+    name: string;
+    email: string;
+}
+// ************************************************
+
 // Task 8. Defining interface for Function types
 // ************************************************
 type DamageLogger = (a: string) => void;
