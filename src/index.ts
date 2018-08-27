@@ -16,6 +16,11 @@ interface IPerson {
 interface IAuthor extends IPerson {
     numBooksPublished: number;
 }
+
+interface ILibrarian extends IPerson {
+    department: string;
+    assistCustomer: (custName: string) => void;
+}
 // ************************************************
 
 // Task 8. Defining interface for Function types
