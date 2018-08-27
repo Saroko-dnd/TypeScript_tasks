@@ -6,6 +6,38 @@ enum Category {
     Angular2,
 }
 
+// Task 9. Extending interface
+// ************************************************
+interface IPerson {
+    name: string;
+    email: string;
+}
+
+interface IAuthor extends IPerson {
+    numBooksPublished: number;
+}
+
+interface ILibrarian extends IPerson {
+    department: string;
+    assistCustomer: (custName: string) => void;
+}
+
+const favoriteAuthor: IAuthor = {
+    email: 'author@google.com',
+    name: 'author name',
+    numBooksPublished: 12,
+};
+
+const favoriteLibrarian: ILibrarian = {
+    assistCustomer: (custName: string) => {
+        console.log(`Can i help you ${custName}?`);
+    },
+    department: 'Science',
+    email: 'author@google.com',
+    name: 'author name',
+};
+// ************************************************
+
 // Task 8. Defining interface for Function types
 // ************************************************
 type DamageLogger = (a: string) => void;
