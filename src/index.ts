@@ -38,6 +38,18 @@ const favoriteLibrarian: ILibrarian = {
 };
 // ************************************************
 
+// Task 10. Intertfaces for class types
+// ************************************************
+class UniversityLibrarian implements ILibrarian {
+    public department: string;
+    public name: string;
+    public email: string;
+    public assistCustomer(custName: string) {
+        console.log(`${this.name} is assisting ${custName}`);
+    }
+}
+// ************************************************
+
 // Task 8. Defining interface for Function types
 // ************************************************
 type DamageLogger = (a: string) => void;
