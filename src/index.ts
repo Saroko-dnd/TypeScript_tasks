@@ -9,6 +9,7 @@ enum Category {
 // Task 11. Creating and using classes
 // ************************************************
 class ReferenceItem {
+    public static department: string = 'Films';
     private pvPublisher: string;
 
     get publisher() {
@@ -24,6 +25,7 @@ class ReferenceItem {
     }
 
     public printItem(): void {
+        console.log(`Department: ${ReferenceItem.department}`);
         console.log(`${this.title} was published in ${this.year}`);
     }
 }
