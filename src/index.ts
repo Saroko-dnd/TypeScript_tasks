@@ -22,6 +22,10 @@ class ReferenceItem {
         console.log(`${this.title} was published in ${this.year}`);
     }
 }
+
+console.log(`\nTask 11. Creating and using classes\n`);
+const ref = new ReferenceItem(`Star Wars`, 2015);
+ref.printItem();
 // ************************************************
 
 // Task 9. Extending interface
