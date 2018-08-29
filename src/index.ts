@@ -6,6 +6,37 @@ enum Category {
     Angular2,
 }
 
+// Task 11. Creating and using classes
+// ************************************************
+class ReferenceItem {
+    public static department: string = 'Films';
+    private pvPublisher: string;
+
+    get publisher() {
+        return this.pvPublisher.toUpperCase();
+    }
+
+    set publisher(newPublisher) {
+        this.pvPublisher = newPublisher;
+    }
+
+    public constructor(public title: string, private year: number) {
+        console.log(`Creating a new ReferenceItem...`);
+    }
+
+    public printItem(): void {
+        console.log(`Department: ${ReferenceItem.department}`);
+        console.log(`${this.title} was published in ${this.year}`);
+    }
+}
+
+console.log(`\nTask 11. Creating and using classes\n`);
+const ref = new ReferenceItem(`Star Wars`, 2015);
+ref.publisher = 'harry';
+ref.printItem();
+console.log(`Publisher: ${ref.publisher}`);
+// ************************************************
+
 // Task 9. Extending interface
 // ************************************************
 interface IPerson {
@@ -40,20 +71,20 @@ const favoriteAuthor: IAuthor = {
 
 // Task 10. Intertfaces for class types
 // ************************************************
-class UniversityLibrarian implements ILibrarian {
+/*class UniversityLibrarian implements ILibrarian {
     public department: string;
     public name: string;
     public email: string;
     public assistCustomer(custName: string) {
         console.log(`${this.name} is assisting ${custName}`);
     }
-}
+}*/
 
 console.log('\nTask 10. Intertfaces for class types\n');
-const favoriteLibrarian: ILibrarian = new UniversityLibrarian();
+/*const favoriteLibrarian: ILibrarian = new UniversityLibrarian();
 
 favoriteLibrarian.name = 'Super Librarian';
-favoriteLibrarian.assistCustomer('Grizli');
+favoriteLibrarian.assistCustomer('Grizli');*/
 
 // ************************************************
 
