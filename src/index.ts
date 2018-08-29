@@ -6,6 +6,24 @@ enum Category {
     Angular2,
 }
 
+// Task 11. Creating and using classes
+// ************************************************
+class ReferenceItem {
+    public title: string;
+    public year: number;
+
+    public constructor(newTitle: string, newYear: number) {
+        console.log(`Creating a new ReferenceItem...`);
+        this.title = newTitle;
+        this.year = newYear;
+    }
+
+    public printItem(): void {
+        console.log(`${this.title} was published in ${this.year}`);
+    }
+}
+// ************************************************
+
 // Task 9. Extending interface
 // ************************************************
 interface IPerson {
