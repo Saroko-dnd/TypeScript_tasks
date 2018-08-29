@@ -37,6 +37,17 @@ ref.printItem();
 console.log(`Publisher: ${ref.publisher}`);
 // ************************************************
 
+// Task 12. Extending classes
+// ************************************************
+/* tslint:disable:max-classes-per-file*/
+class Encyclopedia extends ReferenceItem {
+    public constructor(title: string, year: number, public edition: number) {
+        super(title, year);
+    }
+}
+/* tslint:enable:max-classes-per-file */
+// ************************************************
+
 // Task 9. Extending interface
 // ************************************************
 interface IPerson {
