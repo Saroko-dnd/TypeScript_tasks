@@ -9,7 +9,7 @@ enum Category {
 // Task 11. Creating and using classes
 // ************************************************
 class ReferenceItem {
-    public static department: string = 'Films';
+    public static department: string = 'Sciense';
     private pvPublisher: string;
 
     get publisher() {
@@ -31,7 +31,7 @@ class ReferenceItem {
 }
 
 console.log(`\nTask 11. Creating and using classes\n`);
-const ref = new ReferenceItem(`Star Wars`, 2015);
+const ref = new ReferenceItem(`Quantum mechanics`, 2015);
 ref.publisher = 'harry';
 ref.printItem();
 console.log(`Publisher: ${ref.publisher}`);
@@ -45,6 +45,9 @@ class Encyclopedia extends ReferenceItem {
         super(title, year);
     }
 }
+
+const refBook = new Encyclopedia(`Biology`, 1999, 2);
+refBook.printItem();
 /* tslint:enable:max-classes-per-file */
 // ************************************************
 
