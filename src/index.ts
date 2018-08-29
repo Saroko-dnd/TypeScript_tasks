@@ -20,7 +20,7 @@ class ReferenceItem {
         this.pvPublisher = newPublisher;
     }
 
-    public constructor(public title: string, private year: number) {
+    public constructor(public title: string, protected year: number) {
         console.log(`Creating a new ReferenceItem...`);
     }
 
@@ -43,6 +43,10 @@ console.log(`Publisher: ${ref.publisher}`);
 class Encyclopedia extends ReferenceItem {
     public constructor(title: string, year: number, public edition: number) {
         super(title, year);
+    }
+
+    public printItem(): void {
+        console.log(`Edition: ${this.edition} (${this.year})`);
     }
 }
 
