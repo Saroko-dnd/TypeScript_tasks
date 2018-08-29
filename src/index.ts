@@ -28,14 +28,33 @@ const favoriteAuthor: IAuthor = {
     numBooksPublished: 12,
 };
 
-const favoriteLibrarian: ILibrarian = {
+/*const favoriteLibrarian: ILibrarian = {
     assistCustomer: (custName: string) => {
         console.log(`Can i help you ${custName}?`);
     },
     department: 'Science',
     email: 'author@google.com',
     name: 'author name',
-};
+};*/
+// ************************************************
+
+// Task 10. Intertfaces for class types
+// ************************************************
+class UniversityLibrarian implements ILibrarian {
+    public department: string;
+    public name: string;
+    public email: string;
+    public assistCustomer(custName: string) {
+        console.log(`${this.name} is assisting ${custName}`);
+    }
+}
+
+console.log('\nTask 10. Intertfaces for class types\n');
+const favoriteLibrarian: ILibrarian = new UniversityLibrarian();
+
+favoriteLibrarian.name = 'Super Librarian';
+favoriteLibrarian.assistCustomer('Grizli');
+
 // ************************************************
 
 // Task 8. Defining interface for Function types
