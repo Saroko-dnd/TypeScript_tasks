@@ -9,13 +9,8 @@ enum Category {
 // Task 11. Creating and using classes
 // ************************************************
 class ReferenceItem {
-    public title: string;
-    public year: number;
-
-    public constructor(newTitle: string, newYear: number) {
+    public constructor(public title: string, private year: number) {
         console.log(`Creating a new ReferenceItem...`);
-        this.title = newTitle;
-        this.year = newYear;
     }
 
     public printItem(): void {
