@@ -8,7 +8,7 @@ enum Category {
 
 // Task 11. Creating and using classes
 // ************************************************
-class ReferenceItem {
+abstract class ReferenceItem {
     public static department: string = 'Sciense';
     private pvPublisher: string;
 
@@ -24,6 +24,8 @@ class ReferenceItem {
         console.log(`Creating a new ReferenceItem...`);
     }
 
+    public abstract printCitation(): void;
+
     public printItem(): void {
         console.log(`Department: ${ReferenceItem.department}`);
         console.log(`${this.title} was published in ${this.year}`);
@@ -31,10 +33,10 @@ class ReferenceItem {
 }
 
 console.log(`\nTask 11. Creating and using classes\n`);
-const ref = new ReferenceItem(`Quantum mechanics`, 2015);
+/*const ref = new ReferenceItem(`Quantum mechanics`, 2015);
 ref.publisher = 'harry';
 ref.printItem();
-console.log(`Publisher: ${ref.publisher}`);
+console.log(`Publisher: ${ref.publisher}`);*/
 // ************************************************
 
 // Task 12. Extending classes
@@ -45,6 +47,10 @@ class Encyclopedia extends ReferenceItem {
         super(title, year);
     }
 
+    public printCitation(): void {
+        console.log(`${this.title} - ${this.year}`);
+    }
+
     public printItem(): void {
         console.log(`Edition: ${this.edition} (${this.year})`);
     }
@@ -52,6 +58,13 @@ class Encyclopedia extends ReferenceItem {
 
 const refBook = new Encyclopedia(`Biology`, 1999, 2);
 refBook.printItem();
+/* tslint:enable:max-classes-per-file */
+// ************************************************
+
+// Task 13. Creating abstract classes
+// ************************************************
+/* tslint:disable:max-classes-per-file*/
+
 /* tslint:enable:max-classes-per-file */
 // ************************************************
 
