@@ -24,6 +24,8 @@ abstract class ReferenceItem {
         console.log(`Creating a new ReferenceItem...`);
     }
 
+    public abstract printCitation(): void;
+
     public printItem(): void {
         console.log(`Department: ${ReferenceItem.department}`);
         console.log(`${this.title} was published in ${this.year}`);
@@ -43,6 +45,10 @@ console.log(`Publisher: ${ref.publisher}`);*/
 class Encyclopedia extends ReferenceItem {
     public constructor(title: string, year: number, public edition: number) {
         super(title, year);
+    }
+
+    public printCitation(): void {
+        console.log(`${this.title} - ${this.year}`);
     }
 
     public printItem(): void {
