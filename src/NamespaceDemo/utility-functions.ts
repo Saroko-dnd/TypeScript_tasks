@@ -9,6 +9,10 @@ namespace Utility {
             return daysLate * 0.25;
         }
     }
+
+    function privateFunc(): void {
+        console.log(`This is private`);
+    }
 }
 
 /* tslint:enable:no-namespace*/
