@@ -1,10 +1,4 @@
-enum Category {
-    JavaScript,
-    CSS,
-    HTML,
-    TypeScript,
-    Angular2,
-}
+import { Category } from './enums';
 
 // Task 11. Creating and using classes
 // ************************************************
