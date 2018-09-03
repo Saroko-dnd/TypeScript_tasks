@@ -1,4 +1,5 @@
 import { Category } from './enums';
+import { DamageLogger, IAuthor, IBook } from './interfaces';
 
 // Task 11. Creating and using classes
 // ************************************************
@@ -64,19 +65,6 @@ refBook.printItem();
 
 // Task 9. Extending interface
 // ************************************************
-interface IPerson {
-    name: string;
-    email: string;
-}
-
-interface IAuthor extends IPerson {
-    numBooksPublished: number;
-}
-
-interface ILibrarian extends IPerson {
-    department: string;
-    assistCustomer: (custName: string) => void;
-}
 
 const favoriteAuthor: IAuthor = {
     email: 'author@google.com',
@@ -115,21 +103,11 @@ favoriteLibrarian.assistCustomer('Grizli');*/
 
 // Task 8. Defining interface for Function types
 // ************************************************
-type DamageLogger = (a: string) => void;
+
 // ************************************************
 
 // task 7. Defining an interface
 // ************************************************
-interface IBook {
-    id: number;
-    author: string;
-    available: boolean;
-    title: string;
-    category: Category;
-    pages?: number;
-    markDamaged: DamageLogger;
-}
-
 const printDamageReason: DamageLogger = (reason) => {
     console.log(`Damaged ${reason}`);
 };
