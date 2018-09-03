@@ -1,31 +1,9 @@
-import { Category } from './enums';
-import { DamageLogger, IAuthor, IBook } from './interfaces';
+import { Encyclopedia } from './_classes';
+import { Category } from './_enums';
+import { IAuthor, IBook, Logger } from './_interfaces';
 
 // Task 11. Creating and using classes
 // ************************************************
-abstract class ReferenceItem {
-    public static department: string = 'Sciense';
-    private pvPublisher: string;
-
-    get publisher() {
-        return this.pvPublisher.toUpperCase();
-    }
-
-    set publisher(newPublisher) {
-        this.pvPublisher = newPublisher;
-    }
-
-    public constructor(public title: string, protected year: number) {
-        console.log(`Creating a new ReferenceItem...`);
-    }
-
-    public abstract printCitation(): void;
-
-    public printItem(): void {
-        console.log(`Department: ${ReferenceItem.department}`);
-        console.log(`${this.title} was published in ${this.year}`);
-    }
-}
 
 console.log(`\nTask 11. Creating and using classes\n`);
 /*const ref = new ReferenceItem(`Quantum mechanics`, 2015);
@@ -37,19 +15,6 @@ console.log(`Publisher: ${ref.publisher}`);*/
 // Task 12. Extending classes
 // ************************************************
 /* tslint:disable:max-classes-per-file*/
-class Encyclopedia extends ReferenceItem {
-    public constructor(title: string, year: number, public edition: number) {
-        super(title, year);
-    }
-
-    public printCitation(): void {
-        console.log(`${this.title} - ${this.year}`);
-    }
-
-    public printItem(): void {
-        console.log(`Edition: ${this.edition} (${this.year})`);
-    }
-}
 
 const refBook = new Encyclopedia(`Biology`, 1999, 2);
 refBook.printItem();
@@ -108,7 +73,7 @@ favoriteLibrarian.assistCustomer('Grizli');*/
 
 // task 7. Defining an interface
 // ************************************************
-const printDamageReason: DamageLogger = (reason) => {
+const printDamageReason: Logger = (reason) => {
     console.log(`Damaged ${reason}`);
 };
 

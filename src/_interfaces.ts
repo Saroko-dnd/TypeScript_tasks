@@ -1,4 +1,4 @@
-import { Category } from './enums';
+import { Category } from './_enums';
 
 interface IPerson {
     name: string;
@@ -26,4 +26,4 @@ interface IBook {
     markDamaged: DamageLogger;
 }
 
-export { IPerson, IAuthor, ILibrarian, IBook, DamageLogger };
+export { IPerson, IAuthor, ILibrarian, IBook, DamageLogger as Logger };
