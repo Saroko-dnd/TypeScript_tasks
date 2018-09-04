@@ -33,10 +33,13 @@ const inventory: IBook[] = [
         title: 'Cool autoexec.bat Scripts!',
     },
 ];
+const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 console.log(`\nTask 17. Generic Functions.\n`);
 console.log(`\nInventory array after purge function:\n`);
 console.log(purge(inventory));
+console.log(`Array of numbers after purge function:\n`);
+console.log(purge(numbers));
 
 // Task 11. Creating and using classes
 // ************************************************
