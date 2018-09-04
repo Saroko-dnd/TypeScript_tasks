@@ -53,6 +53,14 @@ magazines.forEach((magazine: IMagazine) => {
     magazineShelf.add(magazine);
 });
 
+console.log(`\nTask 19. Generic Constraints.\n\n`);
+console.log(`List of magazine titles:`);
+console.log(`---`);
+magazineShelf.printTitles();
+console.log(`---\n`);
+console.log(`\nbook with title 'Code Complete':\n`);
+console.log(bookShelf.find('Code Complete'));
+
 console.log(`\nTask 18. Generic Interfaces and Classes.\n\n`);
 console.log(`First book on bookshelf:`);
 console.log(bookShelf.getFirst().title);
