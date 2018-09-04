@@ -26,4 +26,16 @@ interface IBook {
     markDamaged?: DamageLogger;
 }
 
-export { IPerson, IAuthor, ILibrarian, IBook, DamageLogger as Logger };
+interface IMagazine {
+    title: string;
+    publisher: string;
+}
+
+export {
+    IPerson,
+    IAuthor,
+    ILibrarian,
+    IBook,
+    DamageLogger as Logger,
+    IMagazine,
+};

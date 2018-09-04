@@ -1,6 +1,8 @@
 import { Encyclopedia } from './_classes';
 import { Category } from './_enums';
-import { IAuthor, IBook, Logger } from './_interfaces';
+import { IAuthor, IBook, IMagazine, Logger } from './_interfaces';
+// tslint:disable-next-line:import-name
+import Shelf from './_shelf';
 import { purge } from './lib/utility-functions';
 
 const inventory: IBook[] = [
@@ -33,13 +35,35 @@ const inventory: IBook[] = [
         title: 'Cool autoexec.bat Scripts!',
     },
 ];
-const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const bookShelf = new Shelf<IBook>();
+const magazineShelf = new Shelf<IMagazine>();
+const magazines: IMagazine[] = [
+    { title: 'Programming Language Monthly', publisher: 'Code Mags' },
+    { title: 'Literary Fiction Quarterly', publisher: 'College Press' },
+    { title: 'Five Points', publisher: 'GSU' },
+];
 
-console.log(`\nTask 17. Generic Functions.\n`);
+// const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+inventory.forEach((book: IBook) => {
+    bookShelf.add(book);
+});
+
+magazines.forEach((magazine: IMagazine) => {
+    magazineShelf.add(magazine);
+});
+
+console.log(`\nTask 18. Generic Interfaces and Classes.\n\n`);
+console.log(`First book on bookshelf:`);
+console.log(bookShelf.getFirst().title);
+console.log(`First magazine on bookshelf:`);
+console.log(magazineShelf.getFirst().title);
+
+/*console.log(`\nTask 17. Generic Functions.\n`);
 console.log(`\nInventory array after purge function:\n`);
 console.log(purge(inventory));
 console.log(`Array of numbers after purge function:\n`);
-console.log(purge(numbers));
+console.log(purge(numbers));*/
 
 // Task 11. Creating and using classes
 // ************************************************
