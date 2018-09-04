@@ -2,6 +2,37 @@ import { Encyclopedia } from './_classes';
 import { Category } from './_enums';
 import { IAuthor, IBook, Logger } from './_interfaces';
 
+const inventory: IBook[] = [
+    {
+        author: '',
+        available: true,
+        category: Category.Software,
+        id: 10,
+        title: '',
+    },
+    {
+        author: '',
+        available: true,
+        category: Category.Software,
+        id: 11,
+        title: '',
+    },
+    {
+        author: '',
+        available: true,
+        category: Category.Software,
+        id: 12,
+        title: '',
+    },
+    {
+        author: '',
+        available: true,
+        category: Category.Software,
+        id: 13,
+        title: '',
+    },
+];
+
 // Task 11. Creating and using classes
 // ************************************************
 
