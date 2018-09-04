@@ -23,7 +23,7 @@ interface IBook {
     title: string;
     category: Category;
     pages?: number;
-    markDamaged: DamageLogger;
+    markDamaged?: DamageLogger;
 }
 
 export { IPerson, IAuthor, ILibrarian, IBook, DamageLogger as Logger };
