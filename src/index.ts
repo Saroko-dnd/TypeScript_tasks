@@ -1,37 +1,42 @@
 import { Encyclopedia } from './_classes';
 import { Category } from './_enums';
 import { IAuthor, IBook, Logger } from './_interfaces';
+import { purge } from './lib/utility-functions';
 
 const inventory: IBook[] = [
     {
-        author: '',
+        author: 'K & R',
         available: true,
         category: Category.Software,
         id: 10,
-        title: '',
+        title: 'The C Programming Language',
     },
     {
-        author: '',
+        author: 'Steve McConnell',
         available: true,
         category: Category.Software,
         id: 11,
-        title: '',
+        title: 'Code Complete',
     },
     {
-        author: '',
+        author: 'A. B.',
         available: true,
         category: Category.Software,
         id: 12,
-        title: '',
+        title: '8-Bit Graphics with Cobol',
     },
     {
-        author: '',
+        author: 'C. D.',
         available: true,
         category: Category.Software,
         id: 13,
-        title: '',
+        title: 'Cool autoexec.bat Scripts!',
     },
 ];
+
+console.log(`\nTask 17. Generic Functions.\n`);
+console.log(`\nInventory array after purge function:\n`);
+console.log(purge(inventory));
 
 // Task 11. Creating and using classes
 // ************************************************
