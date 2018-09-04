@@ -1,5 +1,5 @@
 export default class Shelf<T> {
-    private items: T[];
+    private items: T[] = [];
 
     public add(item: T): void {
         this.items.push(item);
