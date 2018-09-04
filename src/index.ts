@@ -36,6 +36,11 @@ const inventory: IBook[] = [
     },
 ];
 const bookShelf = new Shelf<IBook>();
+const magazines: IMagazine[] = [
+    { title: 'Programming Language Monthly', publisher: 'Code Mags' },
+    { title: 'Literary Fiction Quarterly', publisher: 'College Press' },
+    { title: 'Five Points', publisher: 'GSU' },
+];
 // const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 inventory.forEach((book: IBook) => {
