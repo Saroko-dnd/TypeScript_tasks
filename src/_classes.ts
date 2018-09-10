@@ -1,3 +1,5 @@
+import { sealed } from './_decorators';
+
 abstract class ReferenceItem {
     public static department: string = 'Sciense';
     private pvPublisher: string;
@@ -23,6 +25,7 @@ abstract class ReferenceItem {
 }
 
 // tslint:disable-next-line:max-classes-per-file
+@sealed(`Encyclopedia`)
 class Encyclopedia extends ReferenceItem {
     public constructor(title: string, year: number, public edition: number) {
         super(title, year);
