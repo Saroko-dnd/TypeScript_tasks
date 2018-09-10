@@ -42,6 +42,7 @@ const magazines: IMagazine[] = [
     { title: 'Literary Fiction Quarterly', publisher: 'College Press' },
     { title: 'Five Points', publisher: 'GSU' },
 ];
+const customEncyclopedia: Encyclopedia = new Encyclopedia(`History`, 2015, 3);
 
 // const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
