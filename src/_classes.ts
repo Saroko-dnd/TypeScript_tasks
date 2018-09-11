@@ -1,4 +1,4 @@
-import { sealed } from './_decorators';
+import { logger, sealed } from './_decorators';
 
 abstract class ReferenceItem {
     public static department: string = 'Sciense';
@@ -40,4 +40,21 @@ class Encyclopedia extends ReferenceItem {
     }
 }
 
-export { ReferenceItem, Encyclopedia };
+// tslint:disable-next-line:max-classes-per-file
+@logger
+class SuperEncyclopedia extends Encyclopedia {
+    public constructor(
+        title: string,
+        year: number,
+        public target: number,
+        public pagesNumber: number,
+    ) {
+        super(title, year, target);
+    }
+
+    public printSize() {
+        console.log(`${this.title} size: ${this.pagesNumber} pages.`);
+    }
+}
+
+export { ReferenceItem, Encyclopedia, SuperEncyclopedia };

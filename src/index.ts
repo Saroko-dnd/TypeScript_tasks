@@ -1,4 +1,4 @@
-import { Encyclopedia } from './_classes';
+import { Encyclopedia, SuperEncyclopedia } from './_classes';
 import { Category } from './_enums';
 import { IAuthor, IBook, IMagazine, Logger } from './_interfaces';
 // tslint:disable-next-line:import-name
@@ -43,6 +43,21 @@ const magazines: IMagazine[] = [
     { title: 'Five Points', publisher: 'GSU' },
 ];
 const customEncyclopedia: Encyclopedia = new Encyclopedia(`History`, 2015, 3);
+
+console.log('Task 20.2 Class Decorators that replace constructor function');
+const customSuperEncyclopedia: SuperEncyclopedia = new SuperEncyclopedia(
+    `Dogs`,
+    2017,
+    2,
+    500,
+);
+
+console.log(`Title: ${customSuperEncyclopedia.title}`);
+console.log(`Year: ${customSuperEncyclopedia.edition}`);
+
+console.log(customSuperEncyclopedia);
+
+console.log('\n\n');
 
 // const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
