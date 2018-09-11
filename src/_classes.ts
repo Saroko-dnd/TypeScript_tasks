@@ -57,4 +57,4 @@ class SuperEncyclopedia extends Encyclopedia {
     }
 }
 
-export { ReferenceItem, Encyclopedia };
+export { ReferenceItem, Encyclopedia, SuperEncyclopedia };
