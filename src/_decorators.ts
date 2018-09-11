@@ -11,7 +11,8 @@ function sealed(param: string) {
 function logger<TFunction extends Function>(target: TFunction): TFunction {
     /* tslint:disable:ban-types */
     // tslint:disable-next-line:only-arrow-functions
-    const newConstructor: Function = function() {
+    const newConstructor: Function = function(title: string) {
+        this.title = title;
         console.log(`Creating new instance ${target}`);
     };
     /* tslint:enable:ban-types */

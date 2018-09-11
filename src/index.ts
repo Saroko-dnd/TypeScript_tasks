@@ -52,6 +52,9 @@ const customSuperEncyclopedia: SuperEncyclopedia = new SuperEncyclopedia(
     500,
 );
 
+console.log(`Title: ${customSuperEncyclopedia.title}`);
+console.log(`Year: ${customSuperEncyclopedia.edition}`);
+
 console.log(customSuperEncyclopedia);
 
 console.log('\n\n');
