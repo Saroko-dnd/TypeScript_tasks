@@ -8,10 +8,10 @@ function sealed(param: string) {
 }
 
 // tslint:disable-next-line:ban-types
-function logger<TFunction extends Function>(target: TFunction) {
+function logger<TFunction extends Function>(target: TFunction): TFunction {
     // tslint:disable-next-line:ban-types
-    const newConstructor: Function = (parameter: string) => {
-        console.log(`Creating new instance ${parameter}`);
+    const newConstructor: Function = () => {
+        console.log(`Creating new instance ${target}`);
     };
 
     newConstructor.prototype = Object.create(target.prototype);
