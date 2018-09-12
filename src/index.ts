@@ -59,6 +59,25 @@ console.log(customSuperEncyclopedia);
 
 console.log('\n\n');
 
+console.log('Task 21. Method Decorator\n\n');
+try {
+    customSuperEncyclopedia.break = () => {
+        console.log(1);
+    };
+} catch (error) {
+    console.log('@writable (false):');
+    console.log(error);
+}
+
+customSuperEncyclopedia.glueTogether = () => {
+    console.log(1);
+};
+console.log('@writable (true):');
+console.log(
+    // tslint:disable-next-line:max-line-length
+    'Successfully changed glueTogether method in object of class SuperEncyclopedia',
+);
+
 // const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 inventory.forEach((book: IBook) => {
