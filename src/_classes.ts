@@ -52,8 +52,16 @@ class SuperEncyclopedia extends Encyclopedia {
         super(title, year, target);
     }
 
-    public printSize() {
+    public printSize(): void {
         console.log(`${this.title} size: ${this.pagesNumber} pages.`);
+    }
+
+    public break(): void {
+        console.log(`Encyclopedia ${this.title} was torn!`);
+    }
+
+    public glueTogether(): void {
+        console.log(`Encyclopedia ${this.title} was glued together!`);
     }
 }
 
