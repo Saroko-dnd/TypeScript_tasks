@@ -23,4 +23,17 @@ function logger<TFunction extends Function>(target: TFunction): TFunction {
     return newConstructor as TFunction;
 }
 
-export { sealed, logger };
+function writable(
+    value: boolean,
+): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void {
+    // tslint:disable-next-line:only-arrow-functions
+    return function(
+        target: any,
+        propertyKey: string,
+        descriptor: PropertyDescriptor,
+    ): void {
+        descriptor.writable = value;
+    };
+}
+
+export { sealed, logger, writable };
