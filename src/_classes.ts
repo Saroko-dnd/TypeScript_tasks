@@ -1,4 +1,4 @@
-import { logger, sealed } from './_decorators';
+import { logger, sealed, writable } from './_decorators';
 
 abstract class ReferenceItem {
     public static department: string = 'Sciense';
@@ -56,10 +56,12 @@ class SuperEncyclopedia extends Encyclopedia {
         console.log(`${this.title} size: ${this.pagesNumber} pages.`);
     }
 
+    @writable(false)
     public break(): void {
         console.log(`Encyclopedia ${this.title} was torn!`);
     }
 
+    @writable(true)
     public glueTogether(): void {
         console.log(`Encyclopedia ${this.title} was glued together!`);
     }
