@@ -10,6 +10,8 @@ namespace Utility {
         }
     }
 
+    export type LibMgrCallback = (err: Error, titles: string[]) => void;
+
     function privateFunc(): void {
         console.log(`This is private`);
     }
