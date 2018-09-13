@@ -1,3 +1,5 @@
+import { Category } from '../_enums';
+
 /* tslint:disable:no-namespace*/
 namespace Utility {
     export function maxBooksAllowed(age: number): number {
@@ -11,6 +13,12 @@ namespace Utility {
     }
 
     export type LibMgrCallback = (err: Error, titles: string[]) => void;
+
+    export function getBooksByCategory(
+        category: Category,
+        callback: LibMgrCallback,
+        // tslint:disable-next-line:no-empty
+    ): void {}
 
     function privateFunc(): void {
         console.log(`This is private`);
