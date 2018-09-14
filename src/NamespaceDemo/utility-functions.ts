@@ -1,4 +1,5 @@
 import { Category } from '../_enums';
+import { IBook, Logger } from '../_interfaces';
 
 /* tslint:disable:no-namespace*/
 namespace Utility {
@@ -11,14 +12,6 @@ namespace Utility {
             return daysLate * 0.25;
         }
     }
-
-    export type LibMgrCallback = (err: Error, titles: string[]) => void;
-
-    export function getBooksByCategory(
-        category: Category,
-        callback: LibMgrCallback,
-        // tslint:disable-next-line:no-empty
-    ): void {}
 
     function privateFunc(): void {
         console.log(`This is private`);
