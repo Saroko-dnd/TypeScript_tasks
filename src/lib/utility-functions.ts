@@ -59,15 +59,19 @@ type LibMgrCallback = (err: Error, titles: string[]) => void;
 function getBooksByCategory(
     category: Category,
     callback: LibMgrCallback,
-    // tslint:disable-next-line:no-empty
 ): void {
-    /*setTimeout(() => {
+    setTimeout(() => {
         try {
-
-        } catch {
-
+            const foundBooks = getBookTitlesByCategory(category);
+            if (foundBooks.length) {
+                callback(null, foundBooks);
+            } else {
+                throw new Error('No books found');
+            }
+        } catch (error) {
+            callback(error, null);
         }
-    }, 2000);*/
+    }, 2000);
 }
 
 export { purge,
