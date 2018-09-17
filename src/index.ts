@@ -5,12 +5,20 @@ import { IAuthor, IBook, IMagazine, Logger } from './_interfaces';
 import Shelf from './_shelf';
 import {
     getAllBooks,
+    getBooksByCategory,
     getBookTitlesByCategory,
+    logCategorySearch,
     printDamageReason,
     purge,
 } from './lib/utility-functions';
 
 console.log('123!!!!!');
+
+console.log('Task 22. Callback functions');
+console.log('before getBooksByCategory call');
+getBooksByCategory(Category.JavaScript, logCategorySearch);
+getBooksByCategory(Category.Software, logCategorySearch);
+console.log('after getBooksByCategory call');
 
 const inventory: IBook[] = [
     {

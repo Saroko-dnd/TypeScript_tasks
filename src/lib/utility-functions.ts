@@ -60,7 +60,7 @@ function logCategorySearch(err: Error, titles: string[]): void {
     if (err) {
         console.log(err.message);
     } else {
-        console.log(titles);
+        console.log(titles.join());
     }
 }
 
@@ -87,4 +87,5 @@ export { purge,
     getAllBooks,
     getBookTitlesByCategory,
     LibMgrCallback,
-    getBooksByCategory };
+    getBooksByCategory,
+    logCategorySearch };
