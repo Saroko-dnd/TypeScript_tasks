@@ -56,6 +56,14 @@ function getBookTitlesByCategory(category = Category.JavaScript): string[] {
 
 type LibMgrCallback = (err: Error, titles: string[]) => void;
 
+function logCategorySearch(err: Error, titles: string[]): void {
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log(titles);
+    }
+}
+
 function getBooksByCategory(
     category: Category,
     callback: LibMgrCallback,
