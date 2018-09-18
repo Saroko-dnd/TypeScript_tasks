@@ -329,12 +329,14 @@ function getTitles(bookProperty: any): string[] {
     switch (typeof bookProperty) {
     case 'string':
         filteredBooks = getAllBooks().filter(
-            (book) => book.author === bookProperty,
+                // tslint:disable-next-line:ter-indent
+                (book) => book.author === bookProperty,
             );
         break;
     case 'boolean':
         filteredBooks = getAllBooks().filter(
-            (book) => book.available === bookProperty,
+                // tslint:disable-next-line:ter-indent
+                (book) => book.available === bookProperty,
             );
         break;
     default:
@@ -353,6 +355,25 @@ checkedOutBooks.forEach((title, index) => console.log(`title 1: ${title}`));
 console.log('\n');
 
 // ************************************************
+
+const getBooksByCategoryPromise = (category: Category): Promise<string[]> => {
+    // tslint:disable-next-line:brace-style
+    // tslint:disable-next-line:ban-types
+    return new Promise((resolve: Function, reject: Function) => {
+        setTimeout(() => {
+            try {
+                const foundBooks = getBookTitlesByCategory(category);
+                if (foundBooks.length) {
+                    resolve(foundBooks);
+                } else {
+                    throw new Error('No books found');
+                }
+            } catch (error) {
+                reject(error);
+            }
+        }, 2000);
+    });
+};
 
 document.getElementById('typescript-app').innerText = JSON.stringify(
     getAllBooks(),
