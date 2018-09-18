@@ -1,5 +1,5 @@
 /* tslint:disable:no-reference*/
-/// <reference path="./utility-functions.ts" />
+/// <reference path="utility-functions.ts" name="Utility"/>
 /* tslint:enable:no-reference*/
 
 import Fees = Utility.Fees;

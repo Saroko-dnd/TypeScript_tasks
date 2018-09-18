@@ -1,3 +1,6 @@
+import { Category } from '../_enums';
+import { IBook, Logger } from '../_interfaces';
+
 /* tslint:disable:no-namespace*/
 namespace Utility {
     export function maxBooksAllowed(age: number): number {
