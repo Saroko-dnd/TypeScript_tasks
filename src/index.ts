@@ -375,6 +375,20 @@ const getBooksByCategoryPromise = (category: Category): Promise<string[]> => {
     });
 };
 
+console.log('Task 23. Promises');
+console.log('before getBooksByCategoryPromise call');
+getBooksByCategoryPromise(Category.JavaScript).then((bookTitles) => bookTitles).
+    then((bookTitles) => console.log(bookTitles.join())).
+    catch((err) => {
+        console.log(err.message);
+    });
+getBooksByCategoryPromise(Category.Software).then((bookTitles) => bookTitles).
+    then((bookTitles) => console.log(bookTitles.join())).
+    catch((err) => {
+        console.log(err.message);
+    });
+console.log('after getBooksByCategoryPromise call');
+
 document.getElementById('typescript-app').innerText = JSON.stringify(
     getAllBooks(),
 );
