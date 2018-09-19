@@ -7,6 +7,7 @@ import Shelf from './_shelf';
 import {
     getAllBooks,
     getBooksByCategory,
+    getBooksByCategoryPromise,
     getBookTitlesByCategory,
     logCategorySearch,
     printDamageReason,
@@ -356,25 +357,6 @@ checkedOutBooks.forEach((title, index) => console.log(`title 1: ${title}`));
 console.log('\n');
 
 // ************************************************
-
-const getBooksByCategoryPromise = (category: Category): Promise<string[]> => {
-    // tslint:disable-next-line:brace-style
-    // tslint:disable-next-line:ban-types
-    return new Promise((resolve: Function, reject: Function) => {
-        setTimeout(() => {
-            try {
-                const foundBooks = getBookTitlesByCategory(category);
-                if (foundBooks.length) {
-                    resolve(foundBooks);
-                } else {
-                    throw new Error('No books found');
-                }
-            } catch (error) {
-                reject(error);
-            }
-        }, 2000);
-    });
-};
 
 console.log('Task 23. Promises');
 console.log('before getBooksByCategoryPromise call');
