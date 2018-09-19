@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { Encyclopedia, SuperEncyclopedia } from './_classes';
 import { Category } from './_enums';
 import { IAuthor, IBook, IMagazine, Logger } from './_interfaces';
@@ -377,14 +378,16 @@ const getBooksByCategoryPromise = (category: Category): Promise<string[]> => {
 
 console.log('Task 23. Promises');
 console.log('before getBooksByCategoryPromise call');
-getBooksByCategoryPromise(Category.JavaScript).then((bookTitles) => bookTitles).
-    then((bookTitles) => console.log(bookTitles.join())).
-    catch((err) => {
+getBooksByCategoryPromise(Category.JavaScript)
+    .then((bookTitles) => bookTitles)
+    .then((bookTitles) => console.log(bookTitles.join()))
+    .catch((err) => {
         console.log(err.message);
     });
-getBooksByCategoryPromise(Category.Software).then((bookTitles) => bookTitles).
-    then((bookTitles) => console.log(bookTitles.join())).
-    catch((err) => {
+getBooksByCategoryPromise(Category.Software)
+    .then((bookTitles) => bookTitles)
+    .then((bookTitles) => console.log(bookTitles.join()))
+    .catch((err) => {
         console.log(err.message);
     });
 console.log('after getBooksByCategoryPromise call');
