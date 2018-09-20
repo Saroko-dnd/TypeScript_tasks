@@ -82,10 +82,40 @@ function getBooksByCategory(
     }, 2000);
 }
 
-export { purge,
+const getBooksByCategoryPromise = (category: Category): Promise<string[]> => {
+    // tslint:disable-next-line:brace-style
+    // tslint:disable-next-line:ban-types
+    return new Promise((resolve: Function, reject: Function) => {
+        setTimeout(() => {
+            try {
+                const foundBooks = getBookTitlesByCategory(category);
+
+                if (foundBooks.length) {
+                    resolve(foundBooks);
+                } else {
+                    throw new Error('No books found');
+                }
+            } catch (error) {
+                reject(error);
+            }
+        }, 2000);
+    });
+};
+
+async function logSearchResults(category: Category) {
+    const foundBooks = await getBooksByCategoryPromise(category);
+
+    console.log(foundBooks);
+}
+
+export {
+    purge,
     printDamageReason,
     getAllBooks,
     getBookTitlesByCategory,
     LibMgrCallback,
     getBooksByCategory,
-    logCategorySearch };
+    logCategorySearch,
+    getBooksByCategoryPromise,
+    logSearchResults,
+};

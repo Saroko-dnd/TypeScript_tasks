@@ -18,7 +18,8 @@
         "ter-arrow-parens": [true, "always"],
         "prefer-template": true,
         "indent": [true, "spaces"],
-        "no-boolean-literal-compare": false
+        "no-boolean-literal-compare": false,
+        "no-implicit-dependencies": [true, "dev"]
     },
     "jsRules": {}
 }

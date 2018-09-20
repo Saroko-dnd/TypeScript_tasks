@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { Encyclopedia, SuperEncyclopedia } from './_classes';
 import { Category } from './_enums';
 import { IAuthor, IBook, IMagazine, Logger } from './_interfaces';
@@ -6,8 +7,10 @@ import Shelf from './_shelf';
 import {
     getAllBooks,
     getBooksByCategory,
+    getBooksByCategoryPromise,
     getBookTitlesByCategory,
     logCategorySearch,
+    logSearchResults,
     printDamageReason,
     purge,
 } from './lib/utility-functions';
@@ -356,35 +359,18 @@ console.log('\n');
 
 // ************************************************
 
-const getBooksByCategoryPromise = (category: Category): Promise<string[]> => {
-    // tslint:disable-next-line:brace-style
-    // tslint:disable-next-line:ban-types
-    return new Promise((resolve: Function, reject: Function) => {
-        setTimeout(() => {
-            try {
-                const foundBooks = getBookTitlesByCategory(category);
-                if (foundBooks.length) {
-                    resolve(foundBooks);
-                } else {
-                    throw new Error('No books found');
-                }
-            } catch (error) {
-                reject(error);
-            }
-        }, 2000);
-    });
-};
-
 console.log('Task 23. Promises');
 console.log('before getBooksByCategoryPromise call');
-getBooksByCategoryPromise(Category.JavaScript).then((bookTitles) => bookTitles).
-    then((bookTitles) => console.log(bookTitles.join())).
-    catch((err) => {
+getBooksByCategoryPromise(Category.JavaScript)
+    .then((bookTitles) => bookTitles)
+    .then((bookTitles) => console.log(bookTitles.join()))
+    .catch((err) => {
         console.log(err.message);
     });
-getBooksByCategoryPromise(Category.Software).then((bookTitles) => bookTitles).
-    then((bookTitles) => console.log(bookTitles.join())).
-    catch((err) => {
+getBooksByCategoryPromise(Category.Software)
+    .then((bookTitles) => bookTitles)
+    .then((bookTitles) => console.log(bookTitles.join()))
+    .catch((err) => {
         console.log(err.message);
     });
 console.log('after getBooksByCategoryPromise call');
@@ -392,3 +378,8 @@ console.log('after getBooksByCategoryPromise call');
 document.getElementById('typescript-app').innerText = JSON.stringify(
     getAllBooks(),
 );
+
+console.log('Task 24. Async/await');
+console.log('Beginning search...');
+logSearchResults(Category.JavaScript).catch(console.log);
+console.log('Search submitted...');
