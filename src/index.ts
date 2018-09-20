@@ -10,6 +10,7 @@ import {
     getBooksByCategoryPromise,
     getBookTitlesByCategory,
     logCategorySearch,
+    logSearchResults,
     printDamageReason,
     purge,
 } from './lib/utility-functions';
@@ -377,3 +378,8 @@ console.log('after getBooksByCategoryPromise call');
 document.getElementById('typescript-app').innerText = JSON.stringify(
     getAllBooks(),
 );
+
+console.log('Task 24. Async/await');
+console.log('Beginning search...');
+logSearchResults(Category.JavaScript).catch(console.log);
+console.log('Search submitted...');

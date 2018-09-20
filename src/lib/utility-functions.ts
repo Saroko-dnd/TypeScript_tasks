@@ -89,6 +89,7 @@ const getBooksByCategoryPromise = (category: Category): Promise<string[]> => {
         setTimeout(() => {
             try {
                 const foundBooks = getBookTitlesByCategory(category);
+
                 if (foundBooks.length) {
                     resolve(foundBooks);
                 } else {
